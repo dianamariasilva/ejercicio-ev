@@ -20,19 +20,7 @@ function redirect(event){
     }
     //(event.target).style.backgroundColor = ((event.target).style.backgroundColor=='rgb(248, 237, 80)') ? 'transparent' : '#F8ED50';
 }
-function buscar(ingreso){
-  var ingreso=document.getElementById("dni").value;
-  var operacion= ingreso*2;
-  document.getElementById("dni").value=operacion;
-}
-// var celdas = document.getElementsByTagName('td');
-//       for (var i = 0; i < celdas.length; i++) {
-//         celdas[i].addEventListener('click',redirect,false);
-//       }   var numeroAsiento;
-// function redirect(event){
-//     numeroAsiento=(event.target.textContent);
-//   document.getElementById("mostrar2").innerHTML=(event.target.textContent);
-//   }
+
 function reservar (){
     var mostrar=document.getElementById("mostrar");
     var numeroAsiento = parseInt (mostrar.textContent);
@@ -51,14 +39,21 @@ function reservar (){
     celdaActual.style.backgroundColor = '#F8ED50';
 
     document.getElementById("name").value = "";
-         document.getElementById("lastname").value = ""
-        document.getElementById("dni").value = "";
+    document.getElementById("lastname").value = "";
+    document.getElementById("dni").value = "";
+   }
 
-}
 
-// function cancelar(){
-
-// }
+ function cancelar(){
+   var num = parseInt (mostrar.textContent);
+   var obj = arreglo[num-1];
+   if (obj !== undefined) {
+         document.getElementById("name").value = "";
+         document.getElementById("lastname").value = "";
+         document.getElementById("dni").value = "";
+         celdaActual.style.backgroundColor = 'transparent';
+    }
+ }
  function listar(){
   var html = "";
   for (var i =0; i < arreglo.length; i++) {
@@ -74,6 +69,19 @@ function reservar (){
  }
    document.getElementById('mostrar2').innerHTML=html;
 }
+
+function buscar(ingreso){
+  var buscDni=document.getElementById("buscarDni");
+  var dniSave= document.getElementById("dni").value;
+   if(buscDni==dniSave){
+    return arreglo[numeroAsiento-1] = {
+    name: document.getElementById("name").value,
+    lastname: document.getElementById("lastname").value,
+    dni: document.getElementById("dni").value,
+    }
+  }
+}
+
   //----------------------------------------------------
 // var N = 10; // Número de asientos
 //    var asientos = [];
