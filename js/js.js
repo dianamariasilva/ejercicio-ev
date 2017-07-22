@@ -46,13 +46,7 @@ function reservar (){
     console.log(arreglo);
      //var html = "";
     
-    var dato_1 = arreglo[numeroAsiento-1];
-    //alert (dato_1);
-    var s = "<div>" + 
-    "<h1>" +  dato_1.name + "</h1>" + "<h2>" + dato_1.lastname +"</h2>" + "<h2>" + dato_1.dni +"</h2>"+
-    "</div>";
     //html += s;
-    document.getElementById('mostrar2').innerHTML=s;
 
     celdaActual.style.backgroundColor = '#F8ED50';
 
