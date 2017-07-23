@@ -46,12 +46,14 @@ function reservar (){
 
  function cancelar(){
    var num = parseInt (mostrar.textContent);
+   var numeroAsiento = parseInt (mostrar.textContent);
    var obj = arreglo[num-1];
    if (obj !== undefined) {
          document.getElementById("name").value = "";
          document.getElementById("lastname").value = "";
          document.getElementById("dni").value = "";
          celdaActual.style.backgroundColor = 'transparent';
+         arreglo=[];
     }
  }
  function listar(){
